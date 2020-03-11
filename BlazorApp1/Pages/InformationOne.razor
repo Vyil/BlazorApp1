@@ -1,0 +1,45 @@
+﻿@page "/informationOne"
+
+@using BlazorApp1.Data
+@inject InformationService InformationRepository
+
+<h1>Check this amazing information</h1>
+<br />
+
+@if (information == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    @foreach (var item in information)
+    {
+        <section>
+            <h3>@item.Title</h3>
+            <h2>@item.Content</h2>
+        </section>
+        <br />
+    }
+}
+<button @onclick="@(()=>doApiStuff())">Click me to change: @counter </button>
+
+@code {
+
+    List<InformationOneContent> information;
+    bool apiCalled = false;
+    int counter = 0;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        information = await InformationRepository.GetInfoAsync();
+    }
+
+    private async Task doApiStuff()
+    {
+        InformationRepository.getApiStuff();
+        counter++;
+        Console.WriteLine("Pressed button");
+    }
+
+}
