@@ -1,0 +1,44 @@
+﻿@page "/gallery"
+@using BlazorApp1.Data
+
+<h3>Gallery</h3>
+<button @onclick="@(()=>changeGallery())">Change me</button>
+<br />
+
+@foreach (String item in images)
+{
+    <img src="/img/@item" width="300px" height="200px" />
+    <img src="/img/@item" width="300px" height="200px" />
+    <img src="/img/@item" width="300px" height="200px" />
+    <br />
+}
+
+@code {
+
+    List<String> images = new List<String>()
+{
+        "one.jfif",
+        "two.jfif",
+        "three.jfif"
+    };
+
+    private void changeGallery()
+    {
+        if (images.Contains("one.jfif"))
+        {
+            images.Clear();
+            images.Add("four.jfif");
+            images.Add("five.jfif");
+            images.Add("six.jfif");
+        }
+        else
+        {
+            images.Clear();
+            images.Add("one.jfif");
+            images.Add("two.jfif");
+            images.Add("three.jfif");
+        }
+
+    }
+
+}

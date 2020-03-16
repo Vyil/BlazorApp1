@@ -14,15 +14,28 @@ namespace BlazorApp1.Data
             _clientFactory = clientFactory;
         }
 
+        private string foo1 = "";
         public async Task getApiStuff(){
             var request = new HttpRequestMessage(HttpMethod.Get,
             "https://postman-echo.com/get?foo1=bar1&foo2=bar2");
             var client = _clientFactory.CreateClient();
             var response = await client.SendAsync(request);
+            setFoo1("called");
 
-            Console.WriteLine(response);
+            Console.WriteLine("Reponse >>>" +response);
+            Console.Read();
         }
         private static readonly List<InformationOneContent> informationOne;
+
+        public void setFoo1(string param)
+        {
+            this.foo1 = param;
+        }
+
+        public string getFoo1()
+        {
+            return this.foo1;
+        }
 
         static InformationService()
         {

@@ -1,8 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\img\one.jfif" />
+    <None Include="wwwroot\img\two.jfif" />
+    <None Include="wwwroot\img\three.jfif" />
+    <None Include="wwwroot\img\four.jfif" />
+    <None Include="wwwroot\img\five.jfif" />
+    <None Include="wwwroot\img\six.jfif" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
